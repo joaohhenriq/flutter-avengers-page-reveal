@@ -10,6 +10,15 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<PageBubble> bubbles = [];
+    for (var i = 0; i < viewModel.pages.length; i++) {
+      final page = viewModel.pages[i];
+      bubbles.add(PageBubble(
+        viewModel: PageBubbleViewModel(page.iconAssetPath,
+            i > viewModel.activeIndex, i == viewModel.activeIndex ? 1.0 : 0.0),
+      ));
+    }
+
     return Column(
       children: <Widget>[
         Expanded(
@@ -17,38 +26,14 @@ class PageIndicator extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-//
-            PageBubble(
-              viewModel: PageBubbleViewModel(
-                  "assets/images/iron-man-icon.png", true, 0.5),
-            ),
-            PageBubble(
-              viewModel: PageBubbleViewModel(
-                  "assets/images/captain-america-icon.png", false, 1.0),
-            ),
-            PageBubble(
-              viewModel: PageBubbleViewModel(
-                  "assets/images/thor-icon.png", true, 0.5),
-            ),
-//            Padding(
-//              padding: const EdgeInsets.all(10.0),
-//              child: Container(
-//                width: 20.0,
-//                height: 20.0,
-//                decoration: BoxDecoration(
-//                    shape: BoxShape.circle,
-//                    border: Border.all(color: Color(0x88FFFFFF), width: 3.0)),
-//              ),
-//            )
-          ],
+          children: bubbles,
         )
       ],
     );
   }
 }
 
-enum SlideDirection { leftToRight, rightToLeft }
+enum SlideDirection { leftToRight, rightToLeft, none }
 
 class PageIndicatorViewModel {
   final List<PageViewModel> pages;
@@ -78,9 +63,15 @@ class PageBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
-        width: lerpDouble(30.0, 70.0, viewModel.activePercent),
-        height: lerpDouble(30.0, 70.0, viewModel.activePercent),
-        decoration: BoxDecoration(shape: BoxShape.circle),
+        width: lerpDouble(20.0, 70.0, viewModel.activePercent),
+        height: lerpDouble(20.0, 70.0, viewModel.activePercent),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: viewModel.isHollow ? Colors.transparent : Color(0x88FFFFFF),
+            border: Border.all(
+                color:
+                    viewModel.isHollow ? Color(0x88FFFFFF) : Colors.transparent,
+                width: 3.0)),
         child: Opacity(
           opacity: viewModel.activePercent,
           child: Image.asset(

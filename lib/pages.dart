@@ -60,7 +60,7 @@ class Page extends StatelessWidget {
 
 class PageViewModel {
   final String imageAssetPath;
-  final String iconAssetIcon;
+  final String iconAssetPath;
 
-  PageViewModel(this.imageAssetPath, this.iconAssetIcon);
+  PageViewModel(this.imageAssetPath, this.iconAssetPath);
 }

@@ -38,7 +38,15 @@ class _HomePageState extends State<HomePage> {
             percentVisible: 1.0,
           ),
         ),
-        PageIndicator()
+        PageIndicator(
+          viewModel:
+          PageIndicatorViewModel(
+              pages,
+              1,
+              SlideDirection.none,
+              0.0
+          ),
+        )
       ],
     ));
   }
