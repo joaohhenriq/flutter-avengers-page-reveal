@@ -5,7 +5,7 @@ final pages = [
       "assets/images/iron-man.jpg", "assets/images/iron-man-icon.png"),
   PageViewModel("assets/images/captain-america.jpg",
       "assets/images/captain-america-icon.png"),
-  PageViewModel("assets/images/thor.jpg", "assets/images/thor-icon.png")
+  PageViewModel("assets/images/thor.jpg", "assets/images/thor-icon.png"),
 ];
 
 class Page extends StatelessWidget {
