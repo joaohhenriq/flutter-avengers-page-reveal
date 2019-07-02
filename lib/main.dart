@@ -1,3 +1,4 @@
+import 'package:avanger_page_reveal/page_dragger.dart';
 import 'package:avanger_page_reveal/page_reveal.dart';
 import 'package:avanger_page_reveal/pager_indicator.dart';
 import 'package:avanger_page_reveal/pages.dart';
@@ -46,7 +47,8 @@ class _HomePageState extends State<HomePage> {
               SlideDirection.leftToRight,
               1.0
           ),
-        )
+        ),
+        PageDragger()
       ],
     ));
   }
