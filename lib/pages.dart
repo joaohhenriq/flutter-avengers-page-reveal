@@ -35,7 +35,7 @@ class Page extends StatelessWidget {
                 child: Text(
                   "TESTE",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.transparent,
                       fontWeight: FontWeight.bold,
                       fontSize: 40),
                 ),
@@ -46,7 +46,7 @@ class Page extends StatelessWidget {
               child: Text(
                 "TESTE",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.transparent,
                     fontWeight: FontWeight.bold,
                     fontSize: 40),
               ),

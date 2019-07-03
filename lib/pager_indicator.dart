@@ -11,7 +11,7 @@ class PageIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<PageBubble> bubbles = [];
-    for (var i = 0; i < viewModel.pages.length; i++) {
+    for (var i = 0; i < viewModel.pages.length; ++i) {
       final page = viewModel.pages[i];
 
       var percentActive;
@@ -106,7 +106,7 @@ class PageBubble extends StatelessWidget {
               border: Border.all(
                   color: viewModel.isHollow
                       ? Color(0x88FFFFFFF).withAlpha(
-                          (0x88 * (1 - viewModel.activePercent)).round())
+                          (0x88 * (1.0 - viewModel.activePercent)).round())
                       : Colors.transparent,
                   width: 3.0)),
           child: Opacity(

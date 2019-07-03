@@ -39,6 +39,6 @@ class CircleRevealClipper extends CustomClipper<Rect> {
   @override
   bool shouldReclip(CustomClipper<Rect> oldClipper) {
     // TODO: implement shouldReclip
-    return null;
+    return true;
   }
 }
